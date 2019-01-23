@@ -1,0 +1,25 @@
+
+1. windows 下载安装 Xshell5 
+
+2. 确保 ubuntu安装了 ssh ：
+	可通过如下命令查看是否已安装
+		dpkg -l | grep ssh
+		
+	一般 linux 默认值只安装了ssh-client, 还需要安装 ssh-server, 
+	sudo apt-get install openssh-server
+	
+	安装完后查看ssh服务是否启动：
+	sudo ps -e |grep ssh
+	如果有sshd,说明ssh服务已经启动；
+	如果没有启动，输入"sudo service ssh start
+	
+2. 创建新的会话
+	1)会话协议 SSH
+	
+	2)主机名/地址为 linux主机地址, 可在linux 输入命令 ifconfig 查看ip 
+	
+	3)端口 22  
+	
+	4)用户名 和 密码 为登录linux主机的账号和密码, 如果root登不上可尝试其他账号.
+	
+3. 可以同时开多个窗口

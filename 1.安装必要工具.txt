@@ -1,0 +1,14 @@
+
+1. sudo apt-get update
+
+2.安装GCC
+	通过命令 gcc --version 查看是否已安装，如果未安装则输入命令
+	sudo apt-get  install  build-essential
+	
+3.安装python
+	通过命令 python --version 查看是否已安装
+
+4.安装ssh
+	sudo apt-get install openssh-server
+
+	
