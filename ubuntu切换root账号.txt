@@ -1,0 +1,7 @@
+
+1. sudo -i  
+   通过这种方法输入当前管理员用户的密码就可以进到root用户
+   
+2. 如果想一直使用root权限，要通过su切换到root用户。那我们首先要重设置root用户的密码：
+	sudo passwd root
+	设置好密码后，就可用过 su root 来切换到root账号; 当然也可以切换到其他账号, 比如 su hlb

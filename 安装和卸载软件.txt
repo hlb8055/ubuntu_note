@@ -1,0 +1,12 @@
+
+1.安装 apt-get install
+
+2.卸载软件:
+	1) apt-get remove xxx
+		删除已安装的软件包（保留配置文件）
+	
+	2)apt-get --purge remove xxx
+		删除已安装包（不保留配置文件)
+		
+	3)apt-get autoremove xxx
+		删除为了满足其他软件包的依赖而安装的，但现在不再需要的软件包

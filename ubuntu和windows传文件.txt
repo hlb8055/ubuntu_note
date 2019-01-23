@@ -1,0 +1,13 @@
+
+1. windows 下载安装 WinSCP 
+
+2. 创建新的会话
+	1)会话协议 SFTP
+	
+	2)主机名/地址为 linux主机地址, 可在linux 输入命令 ifconfig 查看ip 
+	
+	3)端口 22  (linux需要安装 ssh server)
+	
+	4)用户名 和 密码 为登录linux主机的账号和密码, 如果root登不上可尝试其他账号.
+	
+	5)进去后就可以看到windows和linux文件目录结构了，就可以进行文件的相互拷贝了。

@@ -1,0 +1,13 @@
+
+编辑文件”/etc/default/grub”， 
+把  GRUB_CMDLINE_LINUX_DEFAULT=”quiet splash” 
+改成GRUB_CMDLINE_LINUX_DEFAULT=”quiet splash text”
+
+
+然后再运行”sudo update-grub”即可。
+
+
+
+
+
+
