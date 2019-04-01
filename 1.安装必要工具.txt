@@ -1,6 +1,15 @@
 
 1. sudo apt-get update
-
+	可能会报错 Could not resolve 'us.archive.ubuntu.com'
+	解决方法：将网址和IP进行映射，windows上使用ping一下该域名, 得到ip：91.189.91.23
+	修改ubuntu系统的 /etc/hosts 文件 
+		gedit /etc/hosts 
+	在后面添加一行:
+		91.189.91.23	us.archive.ubuntu.com
+	
+	保存后重新执行 apt-get update 即可.
+	
+	
 2.安装GCC
 	通过命令 gcc --version 查看是否已安装，如果未安装则输入命令
 	sudo apt-get  install  build-essential
