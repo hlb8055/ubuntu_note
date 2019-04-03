@@ -15,13 +15,13 @@
 	密码: (输入mysql的root账号对应的密码)
 	
 	
-刚开始填写信息时，主机名ip栏，默认为 localhost， 死活登录不上，
+ps：刚开始填写信息时，主机名ip栏，默认为 localhost， 死活登录不上，
 
 尝试关闭防火墙、设置入站规则(特定端口)、重开启mysql远程登录权限、
 
 重启 mysql 等方式均无法使 navicat 链接到数据库!! 原因是 navicat 安装在windows，mysql安装在
 
-虚拟机 ubuntu 上！！
+虚拟机 ubuntu 上！！ 所以ip栏必须写虚拟器的ip地址。
 
  
 	
