@@ -1,7 +1,7 @@
 
 根据文档 <安装mysql.txt> 安装好mysql 
 
-1.安装 Navicat for MySQL 中文破解版
+1.安装 Navicat for MySQL 中文破解版, 软件放在目录 tools 下
 
 2.启动 Navicat ,新建链接，配置信息如下：
 	连接名：随意写，如 test
@@ -15,11 +15,11 @@
 	密码: (输入mysql的root账号对应的密码)
 	
 	
-ps：刚开始填写信息时，主机名ip栏，默认为 localhost， 死活登录不上，
+	注:刚开始填写信息时，主机名ip栏，默认为 localhost， 死活登录不上，
 
-尝试关闭防火墙、设置入站规则(特定端口)、重开启mysql远程登录权限、
+	尝试过如下方式: 关闭防火墙、设置入站规则(特定端口)、重开启mysql远程登录权限、
 
-重启 mysql 等方式均无法使 navicat 链接到数据库!! 原因是 navicat 安装在windows，mysql安装在
+	重启 mysql 等方式均无法使 navicat 链接到数据库!! 原因是 navicat 安装在windows，mysql安装在
 
 虚拟机 ubuntu 上！！ 所以ip栏必须写虚拟器的ip地址。
 
