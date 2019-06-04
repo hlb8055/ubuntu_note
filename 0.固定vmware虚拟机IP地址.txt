@@ -6,19 +6,45 @@ VMware重启后，IP地址可能会发生变化，给环境配置和软件安装
 	打开VMware软件，在编辑------>虚拟网络编辑器中, 列表中选中 Nat模式的VMnet8,
 	在界面下部可以看到如下信息：
 		子网IP:192.168.159.0  子网掩码：255.255.255.0
-	点击按钮 NAT设置, 打开的界面可以看到网关IP：192.168.159.2
+	1)点击按钮 NAT设置, 打开的界面可以看到网关IP：192.168.159.2
+	2)点击按钮 DHCP设置, 打开的界面可以看到VMnet8为虚拟机分配的可用的子网IP范围, 如：
+		起始IP地址：192.168.174.128
+		结束IP地址：192.168.174.254
 
-2.回到VMware虚拟机, 设置固定ip地址：
-	在UI界面左边菜单栏(第1个), 搜索 network 可以看到组件 Network connections, 点击打开界面，
-	编辑当前网络，选中IPv4Settings栏，添加一条网络信息：
-	Address:192.168.159.128 (设置为你想要的ip)
-	NetMask:255.255.255.0 
-	GateWay:192.168.159.2(上面查看到的网关，可以与DNS相同, 其实也可以设置为 192.168.159.1)
-	DNS Servers:192.168.159.2
+	至此，我们需要的信息都已经获取到，这里汇总一下：
+	IP可用范围：192.168.174.128 ~ 192.168.174.254 
+	网关: 192.168.174.2 
+	子网掩码: 255.255.255.0 
 	
-	勾选 Require IPv4 address for this connection to complete
+2.下面进入 ubuntu 虚拟机设置静态IP
+	1)执行命令打开并编辑网络接口配置文件：
+		sudo vim /etc/network/interfaces
+		
+	2)编辑内容如下：
+		auto lo
+		iface lo inet loopback
+
+		# Assgin static IP by eric on 26-SEP-2012
+		iface eth0 inet static
+		address 192.168.174.129 #change to your static IP
+		netmask 255.255.255.0  #change to your netmask
+		gateway 192.168.174.2    #change to your getway
+		#We must specify dns-nameserver here, in order to get internet access from host
+		dns-nameservers 192.168.174.2
+		auto eth0	
 	
-	保存，退出，重启VMware，通过命令ifconfig查看ip，即可看到重启后ip固定下来了
+	3)重启ubuntu的网卡
+		sudo /etc/init.d/networking restart
+		
+	
+	通过命令ifconfig查看ip 已经固定下来了。如果ech0中没有inet地址(IPV4),
+	可通过如下命令修复：
+		1).先用sudo dhclient eth0更新IP地址
+		2).然后运行sudo ifconfig eth0
+		3).reboot
+	
+	同时打开浏览器看看是否可正常上网,否则无法正常安装软件. 
+	
 	
 	
 	
