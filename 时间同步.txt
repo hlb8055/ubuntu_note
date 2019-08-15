@@ -1,0 +1,15 @@
+
+在虚拟机上安装了ubuntu10.04.3,一直采用的是默认安装，安装完后发现时间不对。使用 date命令发现时间也不对，不过也不是网上说的与真实时间相差8个小时。 
+
+如果没安装 ntpdate 请新安装: apt-get install ntpdate 
+
+//同步时间
+sudo ntpdate ntp.ubuntu.com
+sudo ntpdate time.nist.gov
+
+设置电脑的时区为上海
+sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime 
+
+这时候用date命令查看当前时间就是正确的时间，但是需要要当前时间写入CMOS
+
+使用sudo hwclock --systohc 就可以将系统时间写入CMOS了。重启之后，系统时间就是正确的了。 
